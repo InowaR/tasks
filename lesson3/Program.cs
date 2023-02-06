@@ -76,6 +76,7 @@ int r = right();
 void main(int l, int r)
 {
     if(l == r){Console.WriteLine($"Число {number} палиндром");}
+    else if(number == reverse(number)){Console.WriteLine($"Число {number} палиндром");}
     else{Console.WriteLine($"Число {number} не палиндром");}
 }
 
