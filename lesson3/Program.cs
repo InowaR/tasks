@@ -108,3 +108,34 @@ while (i <= n)
     Console.Write($"{Math.Pow(i, 3)}, ");
     i++;
 }
+
+
+// Extra task
+void blueberries()
+{
+    int[] a = {1,2,2,5,4,3,3,1,1,1,5,1,5,5,4,3,2,6,3,2};
+    int i_first = 0;
+    int i_second = 1;
+    while(i_second < (a.Length) - 1)
+    {
+        while(i_second < (a.Length) -1)
+        {
+            if (a[i_second] >= a[i_first])
+            {
+                i_first++;
+                i_second++;
+            }
+            else
+            {
+                break;
+            } 
+        }
+        int sum0 = a[i_first - 1];
+        int sum1 = a[i_first];
+        int sum2 = a[i_second];
+        Console.WriteLine($"{sum0}, {sum1}, {sum2}");
+        i_first += 3;
+        i_second += 3;
+    }
+}
+blueberries();
