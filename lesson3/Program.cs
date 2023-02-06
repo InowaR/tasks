@@ -45,9 +45,19 @@ int reverse(int number)
 }
 
 int left()
-{
-    int n = degree(10, (length(number) / 2) + 1);
-    int left = number / n;
+{   
+    int n;
+    int left;
+    if(number > 50000)
+    {
+        n = degree(10, (length(number) / 2));
+        left = number / n;
+    }
+    else
+    {
+        n = degree(10, ((length(number) / 2) + 1));
+        left = number / n;
+    }
     return left;
 }
 
@@ -55,8 +65,9 @@ int l = left();
 
 int right()
 {
-    int right = reverse(number % degree(10, (length(number) / 2)));
-    if(right % 10 == 0){right /= 10;}
+    int n = reverse(number);
+    int d = degree(10, ((length(n) / 2) + 1));
+    int right = n / d;
     return right;
 }
 
