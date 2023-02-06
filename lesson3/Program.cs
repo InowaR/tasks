@@ -133,7 +133,7 @@ void blueberries()
         int sum0 = a[i_first - 1];
         int sum1 = a[i_first];
         int sum2 = a[i_second];
-        Console.WriteLine($"{sum0}, {sum1}, {sum2}");
+        Console.WriteLine($"{sum0 + sum1 + sum2}");
         i_first += 3;
         i_second += 3;
     }
