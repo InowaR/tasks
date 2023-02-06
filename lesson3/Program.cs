@@ -1,4 +1,5 @@
-﻿Console.WriteLine("Введите число");
+﻿// Task 19
+Console.WriteLine("Введите число");
 int number = Convert.ToInt32(Console.ReadLine());
 
 int length(int number)
@@ -81,3 +82,29 @@ void main(int l, int r)
 }
 
 main(l, r);
+
+
+// Task 21
+Console.WriteLine("Введите координаты x,y,z точки А через пробел");
+string first = Console.ReadLine()!;
+double[] a = first.Split(' ').Select(double.Parse).ToArray();
+Console.WriteLine("Введите координаты x,y,z точки B через пробел");
+string second = Console.ReadLine()!;
+double[] b = second.Split(' ').Select(double.Parse).ToArray();
+double x = a[0] - b[0];
+double y = a[1] - b[1];
+double z = a[2] - b[2];
+double distance = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
+Console.WriteLine(distance);
+
+
+// Task 23
+Console.WriteLine("Введите число");
+int n = Convert.ToInt32(Console.ReadLine());
+int i = 1;
+
+while (i <= n)
+{
+    Console.Write($"{Math.Pow(i, 3)}, ");
+    i++;
+}
