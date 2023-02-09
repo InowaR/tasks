@@ -75,61 +75,89 @@
 //     Console.Write($"{element} ");
 // }
 
-// Extra task 1
+// // Extra task 1
 
-int[] array = {1,2,3,4,5,6,7,8,9};
-int n = array.Length;
-int[] new_array = new int[n];
-int k = -3;
-int i = 0;
-int position;
+// int[] array = {1,2,3,4,5,6,7,8,9};
+// int n = array.Length;
+// int[] new_array = new int[n];
+// int k = -3;
+// int i = 0;
+// int position;
 
-if(k > 0)
-{
-    i = 0;
-    position = n - k;
-    while(i < n)
-    {
-        new_array[i] = array[position];
-        position++;
-        if(position == n){break;}
-        i++;
-    }
+// if(k > 0)
+// {
+//     i = 0;
+//     position = n - k;
+//     while(i < n)
+//     {
+//         new_array[i] = array[position];
+//         position++;
+//         if(position == n){break;}
+//         i++;
+//     }
 
-    i = 0;
-    while(k < n)
-    {
-        new_array[k] = array[i];
-        k++;
-        i++;
-    }
+//     i = 0;
+//     while(k < n)
+//     {
+//         new_array[k] = array[i];
+//         k++;
+//         i++;
+//     }
 
-    foreach (int element in new_array)
-    {
-        Console.Write($"{element} ");
-    } 
-} 
+//     foreach (int element in new_array)
+//     {
+//         Console.Write($"{element} ");
+//     } 
+// } 
 
-if(k < 0)
-{
-    i = n + k;
-    while(i < n)
-    {
-        new_array[i] = array[i-n-k];
-        i++;
-    }
+// if(k < 0)
+// {
+//     i = n + k;
+//     while(i < n)
+//     {
+//         new_array[i] = array[i-n-k];
+//         i++;
+//     }
 
-    i = -k;
-    int j = 0;
-    while(i < n)
-    {
-        new_array[j] = array[i];
-        i++;
+//     i = -k;
+//     int j = 0;
+//     while(i < n)
+//     {
+//         new_array[j] = array[i];
+//         i++;
+//         j++;
+//     }
+
+//     foreach (int element in new_array)
+//     {
+//         Console.Write($"{element} ");
+//     } 
+// } 
+
+//  Extra task 2
+
+// Console.WriteLine("Введите число");
+// int N = Convert.ToInt32(Console.ReadLine());
+int N = 7;
+int i = 5;
+while(i <= N)
+{   
+    int[] array = new int[i];
+    int j = 1;
+    while(j <= i)
+    {   
+        array[j-1] = j;
+        Console.WriteLine(j);
+        
         j++;
-    }
-
-    foreach (int element in new_array)
-    {
-        Console.Write($"{element} ");
     } 
-} 
+
+    int count = 0;   
+    while(count < array.Length)
+    {
+        int res = i / array[count];
+        Console.Write(res);   // only first and last number 
+        count++;
+    }
+    break;
+}
