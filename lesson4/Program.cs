@@ -138,26 +138,37 @@
 
 // Console.WriteLine("Введите число");
 // int N = Convert.ToInt32(Console.ReadLine());
-int N = 7;
-int i = 5;
-while(i <= N)
-{   
-    int[] array = new int[i];
-    int j = 1;
-    while(j <= i)
+int N = 1000;
+int i = 1;
+void prime()
+{
+    List<int> prime_numbers = new List<int>();
+    while(i <= N)
     {   
-        array[j-1] = j;
-        Console.WriteLine(j);
-        
-        j++;
-    } 
+        List<int> numbers = new List<int>();
+        double[] array = new double[i];
+        int j = 1;
+        while(j <= i)
+        {   
+            array[j-1] = j;
+            j++;
+        } 
 
-    int count = 0;   
-    while(count < array.Length)
-    {
-        int res = i / array[count];
-        Console.Write(res);   // only first and last number 
-        count++;
+        int count = 0;   
+        while(count < array.Length)
+        {
+            double res = i / array[count];
+            if(res == Convert.ToInt32(res)){numbers.Add(Convert.ToInt32(res));}
+            count++;
+        }
+        int[] num = numbers.ToArray();
+        if(num.Length < 3){prime_numbers.Add(Convert.ToInt32(i));}
+        i++;
     }
-    break;
+
+    foreach (int element in prime_numbers)
+    {
+        Console.Write($"{element} ");
+    }
 }
+prime();
