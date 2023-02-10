@@ -139,7 +139,7 @@
 // Console.WriteLine("Введите число");
 // int N = Convert.ToInt32(Console.ReadLine());
 int N = 1000;
-int i = 5;
+int i = 2;
 List<int> prime()
 {
     List<int> prime_numbers = new List<int>();
