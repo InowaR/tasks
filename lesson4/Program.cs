@@ -162,7 +162,7 @@ void prime()
             count++;
         }
         int[] num = numbers.ToArray();
-        if(num.Length < 3){prime_numbers.Add(Convert.ToInt32(i));}
+        if(num.Length < 3){prime_numbers.Add(i);}
         i++;
     }
 
