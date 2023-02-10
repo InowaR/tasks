@@ -139,8 +139,8 @@
 // Console.WriteLine("Введите число");
 // int N = Convert.ToInt32(Console.ReadLine());
 int N = 1000;
-int i = 1;
-void prime()
+int i = 5;
+List<int> prime()
 {
     List<int> prime_numbers = new List<int>();
     while(i <= N)
@@ -165,10 +165,23 @@ void prime()
         if(num.Length < 3){prime_numbers.Add(i);}
         i++;
     }
-
-    foreach (int element in prime_numbers)
-    {
-        Console.Write($"{element} ");
-    }
+    return prime_numbers;
 }
-prime();
+List<int> a = prime();
+int[] arr1 = a.ToArray();
+
+List<int> multiplication = new List<int>();
+int count = 0;
+while(count < arr1.Length)
+{   
+    int j = 0;
+    while(j < arr1.Length)
+    {   
+        multiplication.Add(arr1[count] * arr1[j]);
+        j++;
+    }
+    count++;
+}
+int[] arr2 = multiplication.ToArray();
+Console.WriteLine(arr1.Length);
+Console.WriteLine(arr2.Length);
