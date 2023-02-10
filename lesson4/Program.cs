@@ -136,14 +136,14 @@
 
 //  Extra task 2
 
-// Console.WriteLine("Введите число");
-// int N = Convert.ToInt32(Console.ReadLine());
-int N = 1000;
+Console.WriteLine("Введите число");
+int N = Convert.ToInt32(Console.ReadLine());
+int max = 1000;
 int i = 2;
 List<int> prime()
 {
     List<int> prime_numbers = new List<int>();
-    while(i <= N)
+    while(i <= max)
     {   
         List<int> numbers = new List<int>();
         double[] array = new double[i];
@@ -168,20 +168,33 @@ List<int> prime()
     return prime_numbers;
 }
 List<int> a = prime();
+List<int> sum = new List<int>();
+List<int> index_i = new List<int>();
+List<int> index_j = new List<int>();
 int[] arr1 = a.ToArray();
-
-List<int> multiplication = new List<int>();
 int count = 0;
 while(count < arr1.Length)
 {   
     int j = 0;
     while(j < arr1.Length)
     {   
-        multiplication.Add(arr1[count] * arr1[j]);
+        sum.Add(arr1[count] + arr1[j]);
+        index_i.Add(count);
+        index_j.Add(j);
+
         j++;
     }
     count++;
 }
-int[] arr2 = multiplication.ToArray();
-Console.WriteLine(arr1.Length);
-Console.WriteLine(arr2.Length);
+int[] arr2 = sum.ToArray();
+int s = 0;
+while(s < arr2.Length)
+{
+    if(arr2[s] == N){break;}
+    s++;
+}
+
+int first_prime = index_i[s];
+int second_prime = index_j[s];
+
+Console.WriteLine($"Четное число {N} = {arr1[first_prime]} + {arr1[second_prime]}");
