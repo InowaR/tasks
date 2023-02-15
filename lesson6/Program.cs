@@ -1,4 +1,7 @@
-﻿// // Task 41
+﻿using System;
+using System.Collections;
+
+// // Task 41
 // int count = 0;
 // while(true)
 // {
@@ -32,7 +35,7 @@ int factorial = Factorial(number.Length);
 
 int[] indexes()
 {
-    List<int> indexes= new List<int>(); 
+    List<int> indexes = new List<int>(); 
     int i = 0;
     while(i < number.Length)
     {
@@ -44,3 +47,22 @@ int[] indexes()
     }
 int[] index = indexes();
 
+
+List<int> array = new List<int>();
+array.Add(number[0]);
+int j = 1;
+while(j < number.Length)
+{
+    int a = new Random().Next(1,9);
+    if (Array.Exists(number, element => element == a))
+    {
+            array.Add(a);
+            a = new Random().Next(1,9);
+            j++;
+    }
+}
+
+foreach (int element in array)
+{
+    Console.Write($"{element} ");
+} 
