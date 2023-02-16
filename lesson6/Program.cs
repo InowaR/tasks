@@ -25,7 +25,7 @@ using System.Collections;
 // Console.WriteLine($"Точка пересечения 2 прямых x = {x}, y = {y}.");
 
 // Extra task 1
-int[] number = {1,2,3};
+int[] number = {1,2,3,4,5,6,7,8};
 
 int Factorial(int n)
 {
@@ -36,14 +36,8 @@ int factorial = Factorial(number.Length);
 
 int[] Shuffle(int[] arr)
 {
-    Random rand = new Random();
-    for (int i = arr.Length - 1; i >= 1; i--)
-    {
-        int j = rand.Next(i + 1);
-        int tmp = arr[j];
-        arr[j] = arr[i];
-        arr[i] = tmp;
-    }
+    Random random = new Random();
+    arr = arr.OrderBy(x => random.Next()).ToArray();
     return arr;
 }
 int[] num = Shuffle(number);
