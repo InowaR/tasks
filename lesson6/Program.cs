@@ -25,7 +25,8 @@ using System.Collections;
 // Console.WriteLine($"Точка пересечения 2 прямых x = {x}, y = {y}.");
 
 // Extra task 1
-int[] number = {1,2,3,4,5};
+int[] number = {1,2,3};
+
 int Factorial(int n)
 {
     if (n == 1) return 1;
@@ -33,36 +34,36 @@ int Factorial(int n)
 }
 int factorial = Factorial(number.Length);
 
-int[] indexes()
+int[] Shuffle(int[] arr)
 {
-    List<int> indexes = new List<int>(); 
-    int i = 0;
-    while(i < number.Length)
+    Random rand = new Random();
+    for (int i = arr.Length - 1; i >= 1; i--)
     {
-        indexes.Add(i);
-        i++;
+        int j = rand.Next(i + 1);
+        int tmp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = tmp;
     }
-    int[] index = indexes.ToArray();
-    return index;
-    }
-int[] index = indexes();
+    return arr;
+}
+int[] num = Shuffle(number);
 
-
-List<int> array = new List<int>();
-array.Add(number[0]);
-int j = 1;
-while(j < number.Length)
+List<string> big_array = new List<string>();
+int i = 0;
+while(i < factorial)
 {
-    int a = new Random().Next(1,9);
-    if (Array.Exists(number, element => element == a))
-    {
-            array.Add(a);
-            a = new Random().Next(1,9);
-            j++;
-    }
+    num = Shuffle(number);
+    List<int> array = new List<int>();
+    for(int j = 0; j < number.Length; j++){array.Add(num[j]);}
+    string result = string.Join("", array);
+    if(!big_array.Contains(result)){big_array.Add(result);i++;}
 }
 
-foreach (int element in array)
+int length = 0;
+foreach (string element in big_array)
 {
+    length++;
     Console.Write($"{element} ");
-} 
+}
+Console.WriteLine();
+Console.WriteLine($"Количество перестановок {length}");
