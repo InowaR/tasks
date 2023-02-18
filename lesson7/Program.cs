@@ -10,7 +10,41 @@
 //     Console.WriteLine();
 // }
 
-// Task 50
+// // Task 50
+// int[,] Matrix()
+// {
+//     int[,] Matrix = new int[5,4];
+//     for(int i = 0; i < Matrix.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < Matrix.GetLength(1); j++)
+//         {
+//             Matrix[i, j] = new Random().Next(100);
+//             Console.Write($"{Matrix[i,j]}\t");
+//         }
+//         Console.WriteLine();
+//     }
+//     return Matrix;
+// }
+// int[,] M = Matrix();
+// int RowNumber = 2;
+// int ColumnNumber = 3;
+// void CheckIndex(int[,] M)
+// {
+//     Console.WriteLine("Нумерация строк и стобцов начинается с нуля");
+//     int RowLength = M.GetLength(0);
+//     int ColumnLength = M.GetLength(1);
+//     if(RowNumber >= RowLength || ColumnNumber >= ColumnLength)
+//     {
+//         Console.WriteLine("Такой позиции в массиве нет");
+//     }
+//     else
+//     {
+//         Console.WriteLine($"В {RowNumber} ряду, {ColumnNumber} столбце находится элемент {M[RowNumber, ColumnNumber]}");
+//     }
+// }
+// CheckIndex(M);
+
+// Task 52
 int[,] Matrix()
 {
     int[,] Matrix = new int[5,4];
@@ -26,20 +60,16 @@ int[,] Matrix()
     return Matrix;
 }
 int[,] M = Matrix();
-int RowNumber = 2;
-int ColumnNumber = 3;
-void CheckIndex(int[,] M)
+Console.WriteLine("---------------------------------");
+int Column = 1;
+int Sum = 0;
+for(int i = 0; i < M.GetLength(0); i++)
 {
-    Console.WriteLine("Нумерация строк и стобцов начинается с нуля");
-    int RowLength = M.GetLength(0);
-    int ColumnLength = M.GetLength(1);
-    if(RowNumber >= RowLength || ColumnNumber >= ColumnLength)
+    for(int j = Column; j < Column + 1; j++)
     {
-        Console.WriteLine("Такой позиции в массиве нет");
+        Console.Write($"{M[i,j]}\t");
+        Sum += M[i,j];
     }
-    else
-    {
-        Console.WriteLine($"В {RowNumber} ряду, {ColumnNumber} столбце находится элемент {M[RowNumber, ColumnNumber]}");
-    }
+    Console.WriteLine();
 }
-CheckIndex(M);
+Console.WriteLine($"Сумма элементов столбца {Column} равна {Sum}");
