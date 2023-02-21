@@ -1,5 +1,7 @@
 ﻿// Task 54
-int[,] Matrix = new int[4,4];
+int row = 4;
+int column = 10;
+int[,] Matrix = new int[row, column];
 
 for(int i = 0; i < Matrix.GetLength(0); i++)
 {
@@ -10,7 +12,7 @@ for(int i = 0; i < Matrix.GetLength(0); i++)
     }
     Console.WriteLine();
 }
-Console.WriteLine("-------------------------------------------------------------");
+Console.WriteLine("----------------------------------------------------------------------------");
 
  void BubbleSort(int[] array)
 {
@@ -26,7 +28,7 @@ Console.WriteLine("-------------------------------------------------------------
 
 for(int i = 0; i < Matrix.GetLength(0); i++)
 {
-    int[] array = new int[4];
+    int[] array = new int[column];
     for(int j = 0; j < Matrix.GetLength(1); j++)
     {
         array[j] = Matrix[i,j];
