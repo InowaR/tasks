@@ -124,53 +124,84 @@
 // }
 
 
-// Extra task Negative
-int[,] Array2D = new int[,] {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}};
-for(int i = 0; i < Array2D.GetLength(0); i++)
+// // Extra task Negative
+// int[,] Array2D = new int[,] {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}};
+// for(int i = 0; i < Array2D.GetLength(0); i++)
+// {
+//     for(int j = 0; j < Array2D.GetLength(1); j++)
+//     {
+//         Console.Write($"{Array2D[i,j]} ");
+//     }
+//     Console.WriteLine();
+// }
+// Console.WriteLine("-------");
+// int[,] ImageToNegative()
+// {
+//     int[,] Negative = new int[4,4];
+//     for(int i = 0; i < Array2D.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < Array2D.GetLength(1); j++)
+//         {
+//             if(Array2D[i,j] == 0) {Negative[i,j] = 1;}
+//             if(Array2D[i,j] == 1) {Negative[i,j] = 0;}
+//         }
+//     }
+//     return Negative;
+// }
+// int[,] Image = ImageToNegative();
+// for(int i = 0; i < Image.GetLength(0); i++)
+// {
+//     for(int j = 0; j < Image.GetLength(1); j++)
+//     {
+//         Console.Write($"{Image[i,j]} ");
+//     }
+//     Console.WriteLine();
+// }
+
+// int[,] Misha = new int[,] {{1,1,1,1}, {1,1,1,1}, {1,1,1,1}, {1,1,1,1}};
+
+// void DiffNumberOfPixels(int[,] Image, int[,] Misha)
+// {
+//     int CountDiffPixels = 0;
+//     for(int i = 0; i < Image.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < Image.GetLength(1); j++)
+//         {
+//             if(Image[i,j] == Misha[i,j]){continue;}
+//             if(Image[i,j] != Misha[i,j]){CountDiffPixels++;}
+//         }
+//     }
+//     Console.WriteLine(CountDiffPixels);
+// }
+// DiffNumberOfPixels(Image, Misha);
+
+// Extra task diagonale matrix
+int M = 4;
+int N = 10;
+int[,] Matrix = new int[M,N];
+int num = 0;
+int k = -N;
+while(k < M)
 {
-    for(int j = 0; j < Array2D.GetLength(1); j++)
+    int i = 0;
+    while(i < M)
     {
-        Console.Write($"{Array2D[i,j]} ");
+        int j = 0;
+        while(j < N)
+        {
+            if(j == N - i + k){Matrix[i,j] = num; num++;}
+            j++;
+        }
+        i++;
+    }
+    k++;
+}
+
+for(int i = 0; i < Matrix.GetLength(0); i++)
+{
+    for(int j = 0; j < Matrix.GetLength(1); j++)
+    {
+        Console.Write($"{Matrix[i,j]}\t");
     }
     Console.WriteLine();
 }
-Console.WriteLine("-------");
-int[,] ImageToNegative()
-{
-    int[,] Negative = new int[4,4];
-    for(int i = 0; i < Array2D.GetLength(0); i++)
-    {
-        for(int j = 0; j < Array2D.GetLength(1); j++)
-        {
-            if(Array2D[i,j] == 0) {Negative[i,j] = 1;}
-            if(Array2D[i,j] == 1) {Negative[i,j] = 0;}
-        }
-    }
-    return Negative;
-}
-int[,] Image = ImageToNegative();
-for(int i = 0; i < Image.GetLength(0); i++)
-{
-    for(int j = 0; j < Image.GetLength(1); j++)
-    {
-        Console.Write($"{Image[i,j]} ");
-    }
-    Console.WriteLine();
-}
-
-int[,] Misha = new int[,] {{1,1,1,1}, {1,1,1,1}, {1,1,1,1}, {1,1,1,1}};
-
-void DiffNumberOfPixels(int[,] Image, int[,] Misha)
-{
-    int CountDiffPixels = 0;
-    for(int i = 0; i < Image.GetLength(0); i++)
-    {
-        for(int j = 0; j < Image.GetLength(1); j++)
-        {
-            if(Image[i,j] == Misha[i,j]){continue;}
-            if(Image[i,j] != Misha[i,j]){CountDiffPixels++;}
-        }
-    }
-    Console.WriteLine(CountDiffPixels);
-}
-DiffNumberOfPixels(Image, Misha);
