@@ -94,9 +94,9 @@ int[,] Matrix(int Row, int Column)
     }
     return  Matrix;
 }
-int[,] First =  Matrix(4,4);
+int[,] First =  Matrix(4,4);  // 1 квадратная матрица
 Console.WriteLine("--------------------------------------------");
-int[,] Second =  Matrix(4,4);
+int[,] Second =  Matrix(4,4); // 2 квадратная матрица
 Console.WriteLine("--------------------------------------------");
 
 int OneElementAfterRowMultColumn(int IndexRow, int IndexColumn)
@@ -118,31 +118,34 @@ int OneElementAfterRowMultColumn(int IndexRow, int IndexColumn)
             }
     }
     List<int> MultiplicateElements = new List<int>();
-    for(int count = 0; count < 4; count++)
+    for(int count = 0; count < First.GetLength(1); count++)
     {
         MultiplicateElements.Add(Row[count] * Column[count]);
     }
     int sum = 0;
-    for(int count = 0; count < 4; count++)
+    for(int count = 0; count < First.GetLength(1); count++)
     {
         sum += MultiplicateElements[count];
     }
     return sum;
 }
-
-int[,] Mult = new int[4,4];
-for(int i = 0; i < Mult.GetLength(0); i++)
+void NewMatrix(int[,] First, int[,] Second)
 {
-    for(int j = 0; j < Mult.GetLength(0); j++)
+    int[,] Mult = new int[First.GetLength(1), First.GetLength(1)];
+    for(int i = 0; i < Mult.GetLength(0); i++)
     {
-        Mult[i,j] = OneElementAfterRowMultColumn(i,j);
-    }
-}
-for(int i = 0; i < Mult.GetLength(0); i++)
-    {
-        for(int j = 0; j < Mult.GetLength(1); j++)
+        for(int j = 0; j < Mult.GetLength(0); j++)
         {
-            Console.Write($"{Mult[i,j]}\t");
+            Mult[i,j] = OneElementAfterRowMultColumn(i,j);
         }
-        Console.WriteLine();
     }
+    for(int i = 0; i < Mult.GetLength(0); i++)
+        {
+            for(int j = 0; j < Mult.GetLength(1); j++)
+            {
+                Console.Write($"{Mult[i,j]}\t");
+            }
+            Console.WriteLine();
+        }
+}
+NewMatrix(First,Second); // умножение 2 квадратных матриц
