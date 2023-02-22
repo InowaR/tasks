@@ -77,75 +77,103 @@
 // }
 // Console.WriteLine();
 
-//Task 58
-int[,] Matrix(int Row, int Column)
-{
-    int[,] Matrix = new int[Row, Column];
-    int num = 1;
-    for(int i = 0; i < Matrix.GetLength(0); i++)
-    {
-        for(int j = 0; j < Matrix.GetLength(1); j++)
-        {
-            Matrix[i, j] = num;
-            Console.Write($"{Matrix[i,j]}\t");
-            num++;
-        }
-        Console.WriteLine();
-    }
-    return  Matrix;
-}
-int[,] First =  Matrix(4,4);  // 1 квадратная матрица
-Console.WriteLine("--------------------------------------------");
-int[,] Second =  Matrix(4,4); // 2 квадратная матрица
-Console.WriteLine("--------------------------------------------");
+// // Task 58
+// int[,] Matrix(int Row, int Column)
+// {
+//     int[,] Matrix = new int[Row, Column];
+//     int num = 1;
+//     for(int i = 0; i < Matrix.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < Matrix.GetLength(1); j++)
+//         {
+//             Matrix[i, j] = num;
+//             Console.Write($"{Matrix[i,j]}\t");
+//             num++;
+//         }
+//         Console.WriteLine();
+//     }
+//     return  Matrix;
+// }
+// int[,] First =  Matrix(4,4);  // 1 квадратная матрица
+// Console.WriteLine("--------------------------------------------");
+// int[,] Second =  Matrix(4,4); // 2 квадратная матрица
+// Console.WriteLine("--------------------------------------------");
 
-int OneElementAfterRowMultColumn(int IndexRow, int IndexColumn)
+// int OneElementAfterRowMultColumn(int IndexRow, int IndexColumn)
+// {
+//     List<int> Row = new List<int>();
+//     for(int i = IndexRow; i < IndexRow + 1; i++)
+//     {
+//         for(int j = 0; j < First.GetLength(1); j++)
+//             {
+//                 Row.Add(First[i,j]);
+//             }
+//     }
+//     List<int> Column = new List<int>();
+//     for(int i = 0; i < Second.GetLength(0); i++)
+//     {
+//         for(int j = IndexColumn; j < IndexColumn + 1; j++)
+//             {
+//                 Column.Add(First[i,j]);
+//             }
+//     }
+//     List<int> MultiplicateElements = new List<int>();
+//     for(int count = 0; count < First.GetLength(1); count++)
+//     {
+//         MultiplicateElements.Add(Row[count] * Column[count]);
+//     }
+//     int sum = 0;
+//     for(int count = 0; count < First.GetLength(1); count++)
+//     {
+//         sum += MultiplicateElements[count];
+//     }
+//     return sum;
+// }
+// void NewMatrix(int[,] First, int[,] Second)
+// {
+//     int[,] Mult = new int[First.GetLength(1), First.GetLength(1)];
+//     for(int i = 0; i < Mult.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < Mult.GetLength(0); j++)
+//         {
+//             Mult[i,j] = OneElementAfterRowMultColumn(i,j);
+//         }
+//     }
+//     for(int i = 0; i < Mult.GetLength(0); i++)
+//         {
+//             for(int j = 0; j < Mult.GetLength(1); j++)
+//             {
+//                 Console.Write($"{Mult[i,j]}\t");
+//             }
+//             Console.WriteLine();
+//         }
+// }
+// NewMatrix(First,Second); // умножение 2 квадратных матриц
+
+// Task 60
+int count = 0;
+List<int> randomList = new List<int>();
+while(count < 27)
 {
-    List<int> Row = new List<int>();
-    for(int i = IndexRow; i < IndexRow + 1; i++)
-    {
-        for(int j = 0; j < First.GetLength(1); j++)
-            {
-                Row.Add(First[i,j]);
-            }
-    }
-    List<int> Column = new List<int>();
-    for(int i = 0; i < Second.GetLength(0); i++)
-    {
-        for(int j = IndexColumn; j < IndexColumn + 1; j++)
-            {
-                Column.Add(First[i,j]);
-            }
-    }
-    List<int> MultiplicateElements = new List<int>();
-    for(int count = 0; count < First.GetLength(1); count++)
-    {
-        MultiplicateElements.Add(Row[count] * Column[count]);
-    }
-    int sum = 0;
-    for(int count = 0; count < First.GetLength(1); count++)
-    {
-        sum += MultiplicateElements[count];
-    }
-    return sum;
+    int MyNumber = new Random().Next(10, 99);
+    if (!randomList.Contains(MyNumber)){randomList.Add(MyNumber);count++;}
 }
-void NewMatrix(int[,] First, int[,] Second)
+int i = 0;
+while(i < 27)
 {
-    int[,] Mult = new int[First.GetLength(1), First.GetLength(1)];
-    for(int i = 0; i < Mult.GetLength(0); i++)
+    int[,,] m = new int[3, 3, 3];
+    for (int x = 0; x < 3; x++)
     {
-        for(int j = 0; j < Mult.GetLength(0); j++)
+        for (int y = 0; y < 3; y++)
         {
-            Mult[i,j] = OneElementAfterRowMultColumn(i,j);
-        }
-    }
-    for(int i = 0; i < Mult.GetLength(0); i++)
-        {
-            for(int j = 0; j < Mult.GetLength(1); j++)
+            for (int z = 0; z < 3; z++)
             {
-                Console.Write($"{Mult[i,j]}\t");
+                m[x, y, z] = randomList[i];
+                Console.Write($"{m[x, y, z]}({x},{y},{z})\t");
+                i++;
             }
             Console.WriteLine();
         }
+        Console.WriteLine();
+    }
 }
-NewMatrix(First,Second); // умножение 2 квадратных матриц
