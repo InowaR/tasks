@@ -38,6 +38,8 @@
 //     Console.WriteLine();
 // }
 
+
+
 // // Task 56
 // int row = 4;
 // int column = 4;
@@ -76,6 +78,8 @@
 //     Console.Write($"{Matrix[indexMin,count]}\t");
 // }
 // Console.WriteLine();
+
+
 
 // // Task 58
 // int[,] Matrix(int Row, int Column)
@@ -150,30 +154,55 @@
 // }
 // NewMatrix(First,Second); // умножение 2 квадратных матриц
 
-// Task 60
-int count = 0;
-List<int> randomList = new List<int>();
-while(count < 27)
+
+// // Task 60
+// int count = 0;
+// List<int> randomList = new List<int>();
+// while(count < 27)
+// {
+//     int MyNumber = new Random().Next(10, 99);
+//     if (!randomList.Contains(MyNumber)){randomList.Add(MyNumber);count++;}
+// }
+// int i = 0;
+// while(i < 27)
+// {
+//     int[,,] m = new int[3, 3, 3];
+//     for (int x = 0; x < 3; x++)
+//     {
+//         for (int y = 0; y < 3; y++)
+//         {
+//             for (int z = 0; z < 3; z++)
+//             {
+//                 m[x, y, z] = randomList[i];
+//                 Console.Write($"{m[x, y, z]}({x},{y},{z})\t");
+//                 i++;
+//             }
+//             Console.WriteLine();
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+
+// Task 61
+int n = 15;
+int i = 1;
+string result;
+string Spaces = "   ";
+int multiplier = n;
+while(i < n + 1)
 {
-    int MyNumber = new Random().Next(10, 99);
-    if (!randomList.Contains(MyNumber)){randomList.Add(MyNumber);count++;}
-}
-int i = 0;
-while(i < 27)
-{
-    int[,,] m = new int[3, 3, 3];
-    for (int x = 0; x < 3; x++)
+    result = string.Join(Spaces, new string[multiplier]);
+    Console.Write(result);
+    multiplier--;
+    int number = 1;
+    int j = 1;
+    while(j < i + 1)
     {
-        for (int y = 0; y < 3; y++)
-        {
-            for (int z = 0; z < 3; z++)
-            {
-                m[x, y, z] = randomList[i];
-                Console.Write($"{m[x, y, z]}({x},{y},{z})\t");
-                i++;
-            }
-            Console.WriteLine();
-        }
-        Console.WriteLine();
+        Console.Write($"{number}     ");
+        number = number * (i - j) / j;
+        j++;
     }
+    Console.WriteLine();
+    i++;
 }
