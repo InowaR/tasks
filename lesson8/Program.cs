@@ -184,25 +184,54 @@
 // }
 
 
-// Task 61
-int n = 15;
-int i = 1;
-string result;
-string Spaces = "   ";
-int multiplier = n;
-while(i < n + 1)
+// // Task 61
+// int n = 15;
+// int i = 1;
+// string result;
+// string Spaces = "   ";
+// int multiplier = n;
+// while(i < n + 1)
+// {
+//     result = string.Join(Spaces, new string[multiplier]);
+//     Console.Write(result);
+//     multiplier--;
+//     int number = 1;
+//     int j = 1;
+//     while(j < i + 1)
+//     {
+//         Console.Write($"{number}     ");
+//         number = number * (i - j) / j;
+//         j++;
+//     }
+//     Console.WriteLine();
+//     i++;
+// }
+
+// Task 62
+int row = 7;
+int column = 7;
+int n = 7;
+int[,] Matrix = new int[row, column];
+int count = 1;
+int i = 0;
+while(i < n)
 {
-    result = string.Join(Spaces, new string[multiplier]);
-    Console.Write(result);
-    multiplier--;
-    int number = 1;
-    int j = 1;
-    while(j < i + 1)
+    int j = i;
+    while(j < n-i){Matrix[i, j] = count; count++; j++;}
+    j = i+1;
+    while(j < n-i){Matrix[j, n-i-1] = count; count++; j++;}
+    j = n-i-2;
+    while(j > i-1){Matrix[n-i-1, j] = count; count++; j--;}
+    j = n-i-2;
+    while(j > i){Matrix[j, i] = count; count++; j--;}
+    i++;
+}
+
+for(i = 0; i < Matrix.GetLength(0); i++)
+{
+    for(int j = 0; j < Matrix.GetLength(1); j++)
     {
-        Console.Write($"{number}     ");
-        number = number * (i - j) / j;
-        j++;
+        Console.Write($"{Matrix[i,j]}\t");
     }
     Console.WriteLine();
-    i++;
 }
